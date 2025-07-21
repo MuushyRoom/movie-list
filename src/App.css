@@ -1,0 +1,11 @@
+.main-container {
+  width: 80%;
+  justify-self: center;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
