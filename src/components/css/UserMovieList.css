@@ -7,52 +7,43 @@
   background-color: #151c27;
 }
 
-.card-movies-stats {
-  background-color: #19283d;
-  box-shadow: 0px 9px rgba(255, 255, 255, 0.082);
-  border-radius: 10px;
-  color: white;
-  padding: 15px;
-}
-
-.card-movies-stats h4 {
-  padding: 0;
+.user-movies-info-container .user-movie-list {
+   position: sticky;
+      top: 20px;
+      padding-top: 10px;
   margin: 0;
-  text-align: left;
-}
-
-.movie-list-details {
-  display: flex;
-  gap: 15px;
-  justify-content: space-between;
-}
-
-.user-movie-list {
+  padding: 0;
   list-style: none;
   color: white;
-  padding: 0;
-  justify-content: center;
-  align-content: center;
-}
-
-.user-movie-list h3 {
-  padding: 0;
-  margin: 0;
-}
-
-.user-movie-list {
-  align-items: center;
-  
-}
-
-.user-movie-favorites-container {
-  padding: 0;
-  margin: 0;
-}
-
-.user-movie-watchlist-container {
+  background-color: #151c27;
   display: flex;
   flex-direction: column;
+  gap: 55px;
+}
+
+.user-movie-list li,
+
+h3 {
   padding: 0;
   margin: 0;
 }
+
+.user-movie-list .user-movie-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+ 
+}
+
+.user-movie-item .movie-item-title {
+  position: sticky;
+  top: 0;
+  background-color: rgb(0, 0, 0);
+  width: 90%;
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: 15px;
+}
+
+

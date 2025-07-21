@@ -29,16 +29,16 @@ function MovieDetails({ movie,onAddToWatchList,onAddToFavorites}) {
 
   return (
     <div className="movie-details-container">
-      <div className="movie-details-card">
+      <div className="movie-card">
         <section className="img-container">
           <img
-            className="movie-card-poster"
+            className="poster"
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             alt={movie.original_title}
           />
         </section>
         <section className="movie-details">
-          <p className="movie-title">{movie.original_title}</p>
+          <p className="movie-title">{movie.title}</p>
           <p className="release-date">Release date: {movie.release_date}</p>
          
             
@@ -74,7 +74,6 @@ function MovieDetails({ movie,onAddToWatchList,onAddToFavorites}) {
       <div className="movie-details-info">
          
         <section className="overview-container">
-          <p>{movie.overview}</p>
         </section>
         <p></p>
       </div>

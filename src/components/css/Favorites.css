@@ -1,4 +1,4 @@
-.watchlist-container {
+.favorites-container {
   padding: 20px 0px;
   width: 95%;
   display: flex;
@@ -6,46 +6,45 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  max-height: 500px;
+  max-height: 340px;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-.watchlist-movie {
-
-  display: flex;
-   width: 70%;
+.favorite-movie {
+  width: 70%;
   justify-self: center;
   display: flex;
+  
   gap: 15px;
   border-radius: 15px;
   font-size: 1rem;
-  border: 1px solid rgb(10, 17, 80);
+ border: 1px solid rgb(10, 17, 80);
   box-shadow: #c2c3f84b 0px 4px 12px;
 }
 
-.watchlist-movie .movie-description {
+.favorite-movie .movie-description {
   justify-content: center;
   align-content: center;
   display: flex;
   flex-direction: column;
   padding: 5px;
 }
-.watchlist-movie .poster {
+.favorite-movie .poster {
   align-self: center;
   justify-self: center;
   padding: 0;
   margin: 0;
-  max-height: 250px;
+  max-height: 180px;
   vertical-align: bottom;
   border-radius: 15px;
   box-shadow: #c2c3f84b 0px 4px 12px;
 }
-.watchlist-movie .year {
+.favorite-movie .year {
   color: rgba(255, 255, 255, 0.795);
 }
 
-.watchlist-movie .btn {
+.favorite-movie .btn {
   text-align: center;
   align-self: start;
   border-radius: 3px;
