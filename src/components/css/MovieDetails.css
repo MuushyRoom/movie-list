@@ -21,9 +21,6 @@
   padding: 15px;
   justify-content: center;
 }
-.movie-details p {
-  margin: 0;
-}
 
 .movie-details .movie-title {
   font-weight: 900;
@@ -38,23 +35,13 @@
   padding: 0;
   list-style: none;
   display: flex;
-
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-
-
-/* .movie-details-card {
-  display: flex;
-  gap: 15px;
-  border-radius: 20px;
-  color: white;
-  background-color: rgba(104, 79, 245, 0.76);
+.movie-desc {
+  word-wrap: break-word;
 }
-
-.movie-details-card section {
-  margin: 0;
-  padding: 0;
-} */
 
 .movie-card-poster {
   align-self: center;

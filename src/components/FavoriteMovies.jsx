@@ -1,9 +1,10 @@
-function WatchList({watchList}) {
-    console.log(watchList)
+import { useContext } from 'react';
+function FavoriteMovies({favoriteMovies}) {
+
     return (
          <ul className="movies-watched-container">
          {
-                watchList.map((movie,id)=>{
+                 favoriteMovies.map((movie,id)=>{
     
                     return <li className='movie' key={id}>
                         <img className='movie-poster' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.original_title} />
@@ -19,4 +20,4 @@ function WatchList({watchList}) {
     )
 }
 
-export default WatchList
+export default FavoriteMovies
