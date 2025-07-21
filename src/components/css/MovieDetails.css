@@ -1,30 +1,67 @@
 .movie-details-container {
+  border-radius: 15px;
   padding: 15px;
   display: flex;
   flex-direction: column;
   flex: 1;
   align-content: center;
-  border-radius: 15px;
   background-color: #151c27;
   color: white;
 }
 
 .movie-details-card {
+  border: 1px solid #59677e;
+  border-radius: 15px;
   display: flex;
   gap: 15px;
+}
+
+.movie-details {
+  flex: 1;
+  padding: 15px;
+  justify-content: center;
+}
+.movie-details p {
+  margin: 0;
+}
+
+.movie-details .movie-title {
+  font-weight: 900;
+  font-size: 1.7rem;
+  margin: 1rem 0px;
+}
+.movie-details .release-date {
+  color: gray;
+}
+
+.genres {
+  padding: 0;
+  list-style: none;
+  display: flex;
+
+}
+
+
+
+/* .movie-details-card {
+  display: flex;
+  gap: 15px;
+  border-radius: 20px;
+  color: white;
+  background-color: rgba(104, 79, 245, 0.76);
 }
 
 .movie-details-card section {
   margin: 0;
   padding: 0;
-}
+} */
 
 .movie-card-poster {
- max-height: 200px;
+  align-self: center;
+  justify-self: center;
+  padding: 0;
+  margin: 0;
+  max-height: 400px;
+  vertical-align: bottom;
   border-radius: 15px;
-
-}
-
-* {
-  border: 1px solid black;
 }

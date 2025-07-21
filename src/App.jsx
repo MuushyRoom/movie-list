@@ -6,93 +6,62 @@ import WatchList from "./components/WatchList";
 import MovieDetails from "./components/MovieDetails";
 import { api_key } from "../api_files/api";
 
-const tempMovieData = [
-  {
-    imdbID: "tt1375666",
-    Title: "Inception",
-    Year: "2010",
-    Poster:
-      "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
-  },
-  {
-    imdbID: "tt0133093",
-    Title: "The Matrix",
-    Year: "1999",
-    Poster:
-      "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
-  },
-  {
-    imdbID: "tt6751668",
-    Title: "Parasite",
-    Year: "2019",
-    Poster:
-      "https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg",
-  },
-];
-
-const tempWatchedData = [
-  {
-    imdbID: "tt1375666",
-    Title: "Inception",
-    Year: "2010",
-    Poster:
-      "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
-    runtime: 148,
-    imdbRating: 8.8,
-    userRating: 10,
-  },
-  {
-    imdbID: "tt0088763",
-    Title: "Back to the Future",
-    Year: "1985",
-    Poster:
-      "https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
-    runtime: 116,
-    imdbRating: 8.5,
-    userRating: 9,
-  },
-];
-
-
-
-
 function App() {
+  // movies
+  const [movies, setMovies] = useState([]);
+  // IF A MOVIE IS SELECTED
+  const [isSelected, setIsSelected] = useState(false);
 
+  const [selectedMovie, setSelectedMovie] = useState();
 
-  const [currentMovie,setCurrentMovie] = useState(tempMovieData)
-  const [movieSelected,setMovieSelected] = useState(false)
-  const [selectedMovie,setSelectedMovie] = useState()
+  const [userMovieList, setUserMovieList] = useState([]);
 
-
-
-
-  function handleSelectedMovie(id){
-    setMovieSelected(true)
-    setSelectedMovie(currentMovie[id])
-
+  const [resultCount, setResultCount] = useState();
+  // GETTING MOVIE DATA
+  async function getMovies() {
+    try {
+      const url = `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      setMovies(data.results);
+    } catch (e) {
+      console.log("fetch movies error", e);
+    }
   }
 
-console.log(api_key)
+  // FETCH DATA AT THE START OF WEBSITE
+  useEffect(() => {
+    getMovies();
+  }, []);
 
+  useEffect(() => {
+    setResultCount(movies.length);
+  }, [movies]);
 
-
-
+  function handleSelectedMovie(_id, index) {
+    if (isSelected && selectedMovie.id == _id) {
+      setIsSelected(false);
+    } else {
+      setSelectedMovie(movies[index]);
+      setIsSelected(true);
+    }
+  }
 
   return (
     <>
-      <Header/>
-        <div className="main-container">
-
-           <main className="main-content">
-            <Movies  onSelectMovie={handleSelectedMovie} movies={currentMovie}></Movies>
-            {
-              movieSelected? <MovieDetails movie={selectedMovie}/>:<WatchList/>
-            }
-            
-
-          </main>
-        </div>
-     
+      <Header movieCounts={resultCount} />
+      <div className="main-container">
+        <main className="main-content">
+          {/*         when a movie is clicked               pass movies           */}
+          <Movies onSelectMovie={handleSelectedMovie} movies={movies}></Movies>
+          {/*                MOVIE DESCRIPTION                       WATCHED LIST                            */}
+          {isSelected ? (
+            <MovieDetails movie={selectedMovie} />
+          ) : (
+            <WatchList watchedMovies={userMovieList} />
+          )}
+        </main>
+      </div>
     </>
   );
 }

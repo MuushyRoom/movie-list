@@ -1,17 +1,17 @@
 import './css/Movies.css'
 
-function Movies({onSelectMovie,movies}) {
+function Movies({movies,onSelectMovie}) {
     
     return (
         <ul className="movie-list">
             {
-
                  movies.map((movie,id)=>{
-                    return <li className='movie' key={id} onClick={()=>{onSelectMovie(id)}}>
-                        <img className='movie-poster' src={movie.Poster} alt={movie.title} />
+    
+                    return <li className='movie' key={id} onClick={()=>{onSelectMovie(movie.id,id)}}>
+                        <img className='movie-poster' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.original_title} />
                         <section className='movie-description'>
-                             <p className='movie-title'>{movie.Title}</p>
-                        <p className='movie-year'>📅{movie.Year}</p>
+                             <p className='movie-title'>{movie.original_title}</p>
+                        <p className='movie-year'>📅{movie.release_date}</p>
                         </section>
                     </li>
                     
