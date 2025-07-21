@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Movies from "./components/Movies";
 import WatchList from "./components/WatchList";
 import MovieDetails from "./components/MovieDetails";
+import { api_key } from "./API/api";
 
 const tempMovieData = [
   {
@@ -53,6 +54,8 @@ const tempWatchedData = [
 ];
 
 
+
+
 function App() {
 
 
@@ -62,11 +65,16 @@ function App() {
 
 
 
+
   function handleSelectedMovie(id){
     setMovieSelected(true)
     setSelectedMovie(currentMovie[id])
 
   }
+
+console.log(api_key)
+
+
 
 
 
