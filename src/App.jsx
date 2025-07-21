@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Movies from "./components/Movies";
 import WatchList from "./components/WatchList";
 import MovieDetails from "./components/MovieDetails";
-import { api_key } from "./API/api";
+import { api_key } from "../api_files/api";
 
 const tempMovieData = [
   {
