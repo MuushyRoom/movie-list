@@ -1,13 +1,20 @@
 import "./css/UserMovieList.css";
 import FavoriteMovies from "./FavoriteMovies";
 import WatchList from "./WatchList";
+import { useContext } from "react";
+import { userMovieListContext  } from "../App";
 
-function UserMovieList({ favoriteMovies, watchList }) {
-  console.log(favoriteMovies);
-  console.log(watchList);
+function UserMovieList() {
+
+  const [favoriteMovies,watchList] = useContext(userMovieListContext);
+ 
+
+  console.log(favoriteMovies)
+  console.log(watchList)
   return (
     <div className="user-movies-info-container">
-  
+
+
       <ul className="user-movie-list">
         <li className="user-movie-item">
           <h3 className="movie-item-title">Favorites</h3>

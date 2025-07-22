@@ -1,7 +1,11 @@
 import './css/WatchList.css'
+import { useContext } from "react";
+import { userMovieListContext  } from "../App";
 
-function WatchList({watchList}) {
-    console.log(watchList)
+function WatchList() {
+
+
+    const [,watchList] = useContext(userMovieListContext);
     return (
          <ul className="watchlist-container">
          {

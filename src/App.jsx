@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Movies from "./components/Movies";
@@ -6,7 +6,14 @@ import UserMovieList from "./components/UserMovieList";
 import MovieDetails from "./components/MovieDetails";
 import { api_key } from "../api_files/api";
 
+
+// 
+export const userMovieListContext = createContext();
+
+
 function App() {
+
+
   // movies
   const [movies, setMovies] = useState([]);
   // IF A MOVIE IS SELECTED
@@ -18,6 +25,21 @@ function App() {
 
   const [watchLists, setWatchLists] = useState([]);
   const [favorites, setFavorites] = useState([]);
+
+
+
+//  const contextValue = useMemo(() => ({
+//     favorites,
+//     watchLists,
+//     // Include setter functions if child components need to update
+//     setFavorites,
+//     setWatchLists
+//   }), [favorites, watchLists]);
+
+
+
+
+
   // GETTING MOVIE DATA
   async function getMovies() {
     try {
@@ -73,7 +95,10 @@ function App() {
               onAddToFavorites={AddToFavorites}
             />
           ) : (
-            <UserMovieList favoriteMovies={favorites} watchList={watchLists} />
+
+            <userMovieListContext.Provider value={[favorites,watchLists]}>
+              <UserMovieList/>
+            </userMovieListContext.Provider>   
           )}
         </main>
       </div>

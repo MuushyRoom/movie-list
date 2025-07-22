@@ -1,5 +1,9 @@
 import "./css/Favorites.css";
-function FavoriteMovies({ favoriteMovies }) {
+import { useContext } from "react";
+import { userMovieListContext  } from "../App";
+function FavoriteMovies() {
+
+   const [favoriteMovies,] = useContext(userMovieListContext);
   return (
     <ul className="favorites-container">
       {favoriteMovies.map((movie, id) => {
